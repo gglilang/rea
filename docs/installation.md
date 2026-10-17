@@ -264,14 +264,14 @@ Register with the variable unset:
 <!-- x-release-please-start-version -->
 
 ```bash
-claude mcp add --scope local rea -- npx -y rea-agents@6.5.0 mcp
+claude mcp add --scope local rea -- npx -y rea-agents@6.6.0 mcp
 ```
 
 On native Windows, use the same project directory and wrap the package-runner
 shim so the stdio client can launch it:
 
 ```powershell
-claude mcp add --scope local rea -- cmd.exe /d /c npx -y rea-agents@6.5.0 mcp
+claude mcp add --scope local rea -- cmd.exe /d /c npx -y rea-agents@6.6.0 mcp
 ```
 
 <!-- x-release-please-end -->
@@ -925,10 +925,6 @@ ownership inspection, so retaining those wrappers would prevent verified
 process-group cancellation during startup.
 If ownership remains unverifiable, it reports the reason and retains the process
 supervisor and private runtime instead of removing files beneath a live provider.
-Startup preserves an observed launch failure when cancellation arrives during
-rollback. Producer cancellation retains the caller's exact reason separately
-from LaunchSupport warnings and cleanup failures. Failed rollback keeps the
-original process owner for a later cleanup retry.
 The experimental Windows transport uses authenticated IPv4 loopback with a
 private native-owned bearer descriptor and Job Object process ownership.
 
@@ -1169,7 +1165,7 @@ For a client that requires manual configuration, use:
   "mcpServers": {
     "rea": {
       "command": "npx",
-      "args": ["-y", "rea-agents@6.5.0", "mcp"]
+      "args": ["-y", "rea-agents@6.6.0", "mcp"]
     }
   }
 }
